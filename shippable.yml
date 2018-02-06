@@ -41,12 +41,12 @@ jobs:
     steps:
       - IN: sample-param1
       - OUT: sample-param2
-     # - TASK:
-     #   - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
-     #   - script: printenv
-     #   - script: echo $foo
-     #   - script: echo $SAMPLEPARAM1_PARAMS_FOO
-     #   - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
+      - TASK:
+        - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
+        - script: printenv
+        - script: echo $foo
+        - script: echo $SAMPLEPARAM1_PARAMS_FOO
+        - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
      # - TASK:
      #   - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
      #   - script: printenv
@@ -54,11 +54,11 @@ jobs:
      #   - script: echo $SAMPLEPARAM1_PARAMS_FOO
      #   - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
         
-      - TASK:
-        name: task1env
-        script:
-          - ls
-          - printenv
+     # - TASK:
+     #   name: task1env
+     #   script:
+      #    - ls
+       #   - printenv
      # - TASK:
      ##     name: task2
       #    runtime:                  # optional
