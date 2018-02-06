@@ -13,3 +13,65 @@ build:
   ci: 
     - printenv
    
+resources:
+  - name: sample-param1 #jatin-params-in
+    type: params
+    version:
+      params:
+        foo: boo
+  
+  - name: sample-gitRepo
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: toerel/samplePython
+      branch: master
+ 
+  - name: sample-param2 #jatin-params-out
+    type: params
+    version:
+      params:
+        foo: bar
+
+jobs:
+  - name: sample-runSh1
+    type: runSh
+    runtime:
+      nodePool: test
+    steps:
+      - IN: sample-param1
+      - OUT: sample-param2
+      - TASK:
+        - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
+        - script: printenv
+        - script: echo $foo
+        - script: echo $SAMPLEPARAM1_PARAMS_FOO
+        - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
+ 
+#  - name: runSh-Job-1
+#    type: runSh
+#    runtime:
+#      nodePool: jatin-dynamic
+#    steps:
+#      - IN: jatin-params-in
+#      - OUT: jatin-params-out
+#      - TASK:
+#        - script: shipctl get_resource_env jatin-params-in "PARAMS_FOO"
+#        - script: printenv
+#        - script: echo $foo
+ #       - script: echo $JATINPARAMSOUT_PARAMS_FOO
+#        - script: shipctl get_resource_env jatin-params-out "PARAMS_FOO"
+        
+#  - name: runSh-Job-2
+ #   type: runSh
+ #   runtime:
+ #     nodePool: jatin-dynamic
+ #   steps:
+  #    - IN: jatin-params-in
+  #    - OUT: jatin-params-out
+  #    - TASK:
+  #      - script: shipctl get_resource_env jatin-params-in "PARAMS_FOO"
+  #      - script: printenv
+   #     - script: echo $foo
+   #     - script: echo $JATINPARAMSOUT_PARAMS_FOO
+  #      - script: shipctl get_resource_env jatin-params-out "PARAMS_FOO"
