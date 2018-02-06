@@ -54,11 +54,11 @@ jobs:
      #   - script: echo $SAMPLEPARAM1_PARAMS_FOO
      #   - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
         
-       - TASK:
-          name: task1
-          script:
-            - ls
-            - printenv
+      - TASK:
+        name: task1
+        script:
+          - ls
+          - printenv
       - TASK:
           name: task2
           runtime:                  # optional
