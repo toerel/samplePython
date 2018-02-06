@@ -1,0 +1,14 @@
+language: 
+  - python
+  
+runtime:
+  nodePool: jatin-dynamic
+# Version number
+python: 
+  - 2.7
+  - 3.5
+  
+build:
+  ci: 
+    - printenv
+   
