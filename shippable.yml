@@ -2,7 +2,7 @@ language:
   - python
   
 runtime:
-  nodePool: shippable
+  nodePool: test
 # Version number
 python: 
   - 2.7
