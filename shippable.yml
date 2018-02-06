@@ -2,7 +2,7 @@ language:
   - python
   
 runtime:
-  nodePool: jatin-dynamic
+  nodePool: shippable
 # Version number
 python: 
   - 2.7
