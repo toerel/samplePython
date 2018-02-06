@@ -47,7 +47,29 @@ jobs:
         - script: echo $foo
         - script: echo $SAMPLEPARAM1_PARAMS_FOO
         - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
- 
+     # - TASK:
+     #   - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
+     #   - script: printenv
+     #   - script: echo $foo
+     #   - script: echo $SAMPLEPARAM1_PARAMS_FOO
+     #   - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
+        
+       - TASK:
+          name: task1
+          script:
+            - ls
+            - printenv
+      - TASK:
+          name: task2
+          runtime:                  # optional
+            options:
+              image_name: shippabeldocker/sample_node
+              image_tag: latest
+              pull: true    # optional
+              options: '--privileged=true --net=bridge -e FOO=true -e BOO=false' # optional
+              env:                  # optional
+                - env1: value1
+                - env2: value2
 #  - name: runSh-Job-1
 #    type: runSh
 #    runtime:
