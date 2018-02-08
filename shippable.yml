@@ -10,9 +10,14 @@ python:
   - 3.5
   
 build:
+  pre_ci_boot:
+    image_name: drydockaarch64/u16pyt
+    image_tag: master
+    pull: true
+    
   ci: 
     - printenv
-    - sleep 2m
+   # - sleep 2m
    
 resources:
   - name: sample-param1 #jatin-params-in
@@ -48,7 +53,7 @@ jobs:
         - script: echo $foo
         - script: echo $SAMPLEPARAM1_PARAMS_FOO
         - script: shipctl get_resource_env sample-param2 "PARAMS_FOO"
-        - sleep 2m
+       # - sleep 2m
      # - TASK:
      #   - script: shipctl get_resource_env sample-param1 "PARAMS_FOO"
      #   - script: printenv
