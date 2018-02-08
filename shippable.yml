@@ -37,7 +37,7 @@ jobs:
   - name: sample-runSh1
     type: runSh
     runtime:
-      nodePool: test
+      nodePool: testnode
     steps:
       - IN: sample-param1
       - OUT: sample-param2
