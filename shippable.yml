@@ -2,7 +2,7 @@ language:
   - python
   
 runtime:
-  nodePool: testnode
+  nodePool: default_node_pool
   
 # Version number
 python: 
