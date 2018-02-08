@@ -1,8 +1,8 @@
 language: 
   - python
   
-#runtime:
- # nodePool: test
+runtime:
+  nodePool: testnode
   
 # Version number
 python: 
