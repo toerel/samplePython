@@ -2,7 +2,7 @@ language:
   - python
   
 runtime:
-  nodePool: default_node_pool
+  nodePool: dynamic__x86_64__Ubuntu_14_04__c4_large
   
 # Version number
 python: 
@@ -37,7 +37,7 @@ jobs:
   - name: sample-runSh1
     type: runSh
     runtime:
-      nodePool: testnode
+      nodePool: dynamic__x86_64__Ubuntu_14_04__c4_large
     steps:
       - IN: sample-param1
       - OUT: sample-param2
