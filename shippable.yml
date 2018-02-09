@@ -10,10 +10,10 @@ python:
   - 3.5
   
 build:
-  pre_ci_boot:
-    image_name: drydockaarch64/u16pyt
-    image_tag: master
-    pull: true
+ # pre_ci_boot:
+ #   image_name: drydockaarch64/u16pyt
+ #   image_tag: master
+ #   pull: true
     
   ci: 
     - printenv
